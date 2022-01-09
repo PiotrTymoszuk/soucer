@@ -1,0 +1,20 @@
+Package: soucer
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.0
+Description: A set of tools for creating directories and moving between them, 
+    sourcing of R files and capturing sourcing errors and inserting signal anchors
+    in the script
+License: GPL 3
+Encoding: UTF-8
+LazyData: true
+Authors@R: 
+    person("Piotr", "Tymoszuk", , "piotr.s.tymoszuk@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-0398-6034"))
+Imports: 
+    purrr,
+    rprojroot,
+    scriptName,
+    stringi, 
+    tibble
+RoxygenNote: 7.1.1
