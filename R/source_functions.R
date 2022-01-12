@@ -29,21 +29,29 @@
 
       if(crash) stop(diagn_output, call. = FALSE)
 
-      tibble::tibble(path = path,
-                     status = 'failed',
-                     errors = attr(diagn_output, 'condition')$message,
-                     calls = paste(as.character(attr(diagn_output, 'condition')$call), collapse = ' '),
-                     elapsed = end_time - start_time)
+      status <- tibble::tibble(path = path,
+                               status = 'failed',
+                               errors = attr(diagn_output, 'condition')$message,
+                               calls = paste(as.character(attr(diagn_output, 'condition')$call), collapse = ' '),
+                               elapsed = end_time - start_time)
 
     } else {
 
-      tibble::tibble(path = path,
-                     status = 'success',
-                     errors = 'none',
-                     calls = 'none',
-                     elapsed = end_time - start_time)
+      status <- tibble::tibble(path = path,
+                               status = 'success',
+                               errors = 'none',
+                               calls = 'none',
+                               elapsed = end_time - start_time)
 
     }
+
+    if(message) {
+
+      print(status)
+
+    }
+
+    status
 
   }
 
