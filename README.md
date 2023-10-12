@@ -1,3 +1,5 @@
+[![R](https://github.com/PiotrTymoszuk/soucer/actions/workflows/r.yml/badge.svg)](https://github.com/PiotrTymoszuk/soucer/actions/workflows/r.yml)
+
 # sourcer
 
 A set of tools for creating directories and moving between them, sourcing of R files and capturing sourcing errors, and inserting signal anchors in the script.
