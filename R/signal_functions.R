@@ -1,13 +1,22 @@
 # This script contains the code for functions used for signaling within a script
 
 
-#' Insert a message displayed during file sourcing
+#' Messages displayed during R file sourcing
 #'
-#' @description Displays a user defined message during sourcing of the script.
+#' @description
+#' `insert_msg()` displays a user defined message during sourcing of the script.
+#' `insert_head()` prints a message with the name of the sourced script.
+#' `insert_tail()` displays a message with the name of the sourced script and
+#' user-specified confirmation of the successful execution.
+#'
 #' @param text user-specified message text.
 #' @param separator separator sign.
 #' @param sep_len separator length.
+#' @param prefix a user-specified text displayed before the script name.
+#' @param suffix a user-specified text displayed after the script name.
+#'
 #' @return Nothing, called for its side effects.
+#'
 #' @export
 
   insert_msg <- function(text = NULL, separator = '>', sep_len = 60) {
@@ -18,11 +27,7 @@
 
   }
 
-#' Insert a header with the name of the sourced script
-#'
-#' @description Displays a message with the name of the sourced script.
-#' @param prefix a user-specified prefix displayed before the script name.
-#' @return Nothing, called for its side effects.
+#' @rdname insert_msg
 #' @export
 
   insert_head <- function(prefix = 'Executing:') {
@@ -31,16 +36,13 @@
 
   }
 
-#' Insert a trailer with the name of the sourced script
-#'
-#' @description Displays a message with the name of the sourced script.
-#' and user-specified confirmation of the successful execution.
-#' @param prefix a user-specified prefix displayed before the script name.
-#' @return Nothing, called for its side effects.
+#' @rdname insert_msg
 #' @export
 
-  insert_tail <- function(def_suffix = 'succesfully sourced') {
+  insert_tail <- function(suffix = 'succesfully sourced') {
 
-    insert_msg(paste(scriptName::current_filename(), def_suffix), separator = '<>')
+    insert_msg(paste(scriptName::current_filename(), suffix), separator = '<>')
 
   }
+
+# END ------

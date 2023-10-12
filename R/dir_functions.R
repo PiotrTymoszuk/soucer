@@ -1,16 +1,30 @@
-# This script contains tools for moving between directories
+# Tools for moving between directories
 
-# directory moving ------
-
-#' Go to or create a directory
+#' Navigate between directories and list directory content
+#'
+#' @description
+#' `enter_directory()` sets working directory.
+#' `go_proj_directory()` sets the working directory back to the RStudio
+#' project directory.
+#' `go_up_directory()` moves up in the directory tree relative to the current
+#' working directory.
+#' `list_file_type()` lists all files in the given directory with the
+#' given extension.
+#'
+#' @details
+#' Wrappers around the base functions `dir.exists()` and `dir.create()`.
+#' If `create = FALSE` in `enter_directory()`, the function raises an error,
+#' if the path does not exist.
 #'
 #' @param path a character vector containing a single path name.
-#' @param create logical; should the directory be created if it does not exist yet?
+#' @param create logical; should the directory be created if it does
+#' not exist yet?
 #' @param showWarnings logical; should the warnings on failure be shown?
+#' @param extension file extension.
 #' @param ... other arguments passed to dir.create().
+#'
 #' @return Nothing, called for its side effects.
-#' @description A handy wrapper around the base functions dir.exists and dir.create.
-#' @details If 'create' is set to FALSE, the function raises an error, if the path does not exist.
+#'
 #' @export
 
   enter_directory <- function(path, create = FALSE, showWarnings = TRUE, ...) {
@@ -21,7 +35,9 @@
 
       if(!create) {
 
-        stop("The directory does not exist. Change the 'create' argument to create it")
+        stop(paste("The directory does not exist. Change the 'create'",
+                   "argument to create it"),
+             call. = FALSE)
 
       } else {
 
@@ -37,10 +53,7 @@
 
   }
 
-#' Go back to the project directory
-#'
-#' @description Sets the working directory back to the RStudio project directory.
-#' @return Nothing, called for its side effects.
+#' @rdname enter_directory
 #' @export
 
   go_proj_directory <- function() {
@@ -49,10 +62,7 @@
 
   }
 
-#' Go up in the directory tree
-#'
-#' @description Moves up in the directory tree relative to the current working directory.
-#' @return Nothing, called for its side effects.
+#' @rdname enter_directory
 #' @export
 
   go_up_directory <- function(){
@@ -67,12 +77,7 @@
 
   }
 
-#' List files with the given extension
-#'
-#' @description Lists all files in the given directory with the given extension.
-#' @param path a character vector containing a single path name.
-#' @param extension file extension.
-#' @return Nothing, called for its side effects.
+#' @rdname enter_directory
 #' @export
 
   list_file_type <- function(path = '.', extension = '.txt') {
@@ -82,3 +87,4 @@
 
   }
 
+# END ----

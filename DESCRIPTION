@@ -1,11 +1,11 @@
 Package: soucer
 Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
+Title: Directory Navigation, Script Sourcing and Cache Access
+Version: 1.1.0
 Description: A set of tools for creating directories and moving between them, 
-    sourcing of R files and capturing sourcing errors and inserting signal anchors
-    in the script
-License: GPL 3
+    sourcing of R files and capturing sourcing errors, and inserting signal 
+    anchors in the script.
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Authors@R: 
@@ -17,4 +17,5 @@ Imports:
     scriptName,
     stringi, 
     tibble
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.3
+Roxygen: list(markdown = TRUE)
